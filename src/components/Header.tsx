@@ -9,27 +9,20 @@ const Header = () => {
   const location = useLocation();
 
   const navigation = [
-    { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "Our Services", href: "/services" },
-    { name: "Industries", href: "/industries" },
-    { name: "Training", href: "/training" },
-    { name: "Careers", href: "/careers" },
-    { name: "Contact", href: "/contact" },
+    { name: "About", href: "/about" },
+    { name: "Impact", href: "/impact" },
+    { name: "Services", href: "/services" },
+    { name: "Investor Centre", href: "/investors" },
   ];
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+    <header className="bg-primary text-primary-foreground sticky top-0 z-50">
       {/* Main navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-3">
-              <img 
-                src="/lovable-uploads/209a189c-f0a9-4e14-9848-809e6bb8fbe5.png" 
-                alt="Excel Medical Solutions Logo" 
-                className="h-20 w-auto"
-              />
+              <span className="text-2xl font-bold text-primary-foreground">Excel Medical</span>
             </Link>
           </div>
 
@@ -39,10 +32,10 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium transition-colors hover:text-yellow-600 px-3 py-2 rounded-md ${
+                className={`text-sm font-medium transition-colors px-3 py-2 rounded-md ${
                   location.pathname === item.href
-                    ? "text-yellow-600 bg-yellow-50"
-                    : "text-gray-700 hover:bg-gray-50"
+                    ? "text-accent bg-accent/10"
+                    : "text-primary-foreground hover:text-accent hover:bg-primary-foreground/10"
                 }`}
               >
                 {item.name}
@@ -51,11 +44,8 @@ const Header = () => {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button asChild variant="outline">
-              <a href="https://www.cognitoforms.com/ExcelEMS/EventMedicalResourceCalculator" target="_blank" rel="noopener noreferrer">Get Quote</a>
-            </Button>
-            <Button asChild>
-              <a href="https://www.cognitoforms.com/XLTeam1/RequestCallBack" target="_blank" rel="noopener noreferrer">Schedule a Call</a>
+            <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
+              <a href="/contact">Join Our Impact</a>
             </Button>
           </div>
 
@@ -74,16 +64,16 @@ const Header = () => {
 
       {/* Mobile navigation */}
       {isMenuOpen && (
-        <div className="md:hidden border-t border-gray-200">
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-white">
+        <div className="md:hidden border-t border-primary-foreground/20">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-primary">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
                 className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
                   location.pathname === item.href
-                    ? "text-yellow-600 bg-yellow-50"
-                    : "text-gray-700 hover:text-yellow-600 hover:bg-gray-50"
+                    ? "text-accent bg-accent/10"
+                    : "text-primary-foreground hover:text-accent hover:bg-primary-foreground/10"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -91,11 +81,8 @@ const Header = () => {
               </Link>
             ))}
             <div className="pt-4 space-y-2">
-              <Button asChild variant="outline" className="w-full">
-                <a href="https://www.cognitoforms.com/ExcelEMS/EventMedicalResourceCalculator" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>Get Quote</a>
-              </Button>
-              <Button asChild className="w-full">
-                <a href="https://www.cognitoforms.com/XLTeam1/RequestCallBack" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>Schedule a Call</a>
+              <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+                <a href="/contact" onClick={() => setIsMenuOpen(false)}>Join Our Impact</a>
               </Button>
             </div>
           </div>

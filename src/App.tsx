@@ -34,6 +34,8 @@ import Stadium from "./pages/industries/Stadium";
 import SportsFestivals from "./pages/industries/SportsFestivals";
 import Charity from "./pages/industries/Charity";
 import Equestrian from "./pages/industries/Equestrian";
+import Impact from "./pages/Impact";
+import Investors from "./pages/Investors";
 
 function App() {
   return (
@@ -44,6 +46,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/impact" element={<Impact />} />
+          <Route path="/investors" element={<Investors />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/training" element={<Training />} />
           <Route path="/industries" element={<Industries />} />
